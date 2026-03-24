@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 
-const SUPABASE_URL = 'https://zxhopgnpcuadyxavudyt.supabase.co'
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp4aG9wZ25wY3VhZHl4YXZ1ZHl0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQzMjc0NjEsImV4cCI6MjA4OTkwMzQ2MX0.DLJoIm3Y8NTrnkhuS8OV0nJwNNPmibGWwULIu-k_B6E'
+const SUPABASE_URL = 'https://zxhoppgncuadyxavudyt.supabase.co'
+const SUPABASE_ANON_KEY = 'YOUR_KEY'
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
@@ -14,9 +14,12 @@ export async function loadFromSupabase(key) {
       .select('data')
       .eq('id', `${USER_ID}_${key}`)
       .single()
+
     if (error || !data) return null
     return data.data
-  } catch { return null }
+  } catch {
+    return null
+  }
 }
 
 export async function saveToSupabase(key, value) {
@@ -31,4 +34,3 @@ export async function saveToSupabase(key, value) {
       }, { onConflict: 'id' })
   } catch {}
 }
-
