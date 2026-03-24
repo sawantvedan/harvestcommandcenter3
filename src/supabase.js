@@ -31,4 +31,4 @@ export async function saveToSupabase(key, value) {
       }, { onConflict: 'id' })
   } catch {}
 }
-```
+
