@@ -32,13 +32,3 @@ export async function saveToSupabase(key, value) {
   } catch {}
 }
 ```
-
-Once you've done all 3 files in `src/` and deleted the loose `App.jsx` and `main.jsx` from root, your repo should look like:
-```
-index.html
-package.json
-vite.config.js
-src/
-  App.jsx
-  main.jsx
-  supabase.js
